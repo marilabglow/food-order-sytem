@@ -8,12 +8,13 @@ router.register(r'restaurant', views.Restaurantview,basename="restaurant")
 router.register(r'food_cat', views.food_cat_view,basename="food cat")
 router.register(r'food', views.food_view,basename="food")
 router.register(r'cart', views.Cart_view,basename="CART")
-router.register(r'orders', views.Order_view,basename="ORDER")
+router.register(r'orders', views.OrderItem_view,basename="ORDER")
 urlpatterns = [
   
   path("users",UserView.as_view()),
   path('register',RegisterView.as_view()),
   path('', include(router.urls)),
+ # path('order',AddToCartView.as_view()),
 
 ]
 

@@ -62,15 +62,27 @@ class FoodSerializer(serializers.ModelSerializer):
     class Meta:
         model = Food
         fields = ['id', "food_name","category","restaurant","description",
-                  "availability","price"]
+                  "availability","price","category"]
+    
 class CartSerializer(serializers.ModelSerializer):
+    #food=serializers.ForeignKeyField(Food, related_name="foods")
     class Meta:
         model = Cart
-        fields = ["food_name","quantity"]
+        fields = ["id","food","quantity"]
+    # def save(self,kwargs):
+    #   f=self.validated_data('food')
+    #   price = self.validated_data("price")
+    #   var = Cart.objects.get(res=f.id)
+    #   var.save()
+      
+    
+    
+
+     
 class OrderItemSerializer(serializers.ModelSerializer):
-    #total = serializers.SerializerMethodField('get_total')
+  
     class Meta:
         model = OrderItem
-        fields = ["order","shipping_address",]
+        fields = ["ordered"]
         
   
